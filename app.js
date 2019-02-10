@@ -24,7 +24,9 @@ switch (command) {
         notes.remove(argv.title)
         break
     case "list":
-        notes.fetchNotes()
+        var list = notes.fetchNotes()
+        var i = 0
+        list.forEach(ele => { console.log("Note ", ++i, "\nTitle: ", ele.title, "\nBody: ", ele.body, "\n") })
         break
     default:
         console.log("Unknown command")
