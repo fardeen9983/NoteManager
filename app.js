@@ -21,7 +21,11 @@ switch (command) {
             console.log("Note already exists")
         break
     case "remove":
-        notes.remove(argv.title)
+        if(notes.remove(argv.title)){
+            console.log("Note removed successfully")
+        } else {
+            console.log("Unable to find the note")
+        }
         break
     case "list":
         var list = notes.fetchNotes()

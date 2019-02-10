@@ -12,15 +12,22 @@ var addNote = (title, body) => {
         notes.push(note)
         saveNotes(notes)
         return note
-    } 
+    }
 }
 
 var remove = (title) => {
-
+    var notes = fetchNotes()
+    var note = notes.filter((temp) => temp.title != title)
+    if (note.length == notes.length)
+        return false
+    else {
+        saveNotes(note)
+        return true
+    }
 }
 
 var readNote = (title) => {
-    var notes= fetchNotes()
+    var notes = fetchNotes()
     var note = notes.filter((note) => note.title == title)
     return note[0]
 }
