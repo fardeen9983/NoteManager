@@ -7,7 +7,7 @@ var addNote = (title, body) => {
         body
     }
 
-    var duplicateNotes = notes.filter((note) => note.title === title)
+    var duplicateNotes = notes.filter((note) => note.title == title)
     if (duplicateNotes.length == 0) {
         notes.push(note)
         saveNotes(notes)
@@ -20,7 +20,9 @@ var remove = (title) => {
 }
 
 var readNote = (title) => {
-
+    var notes= fetchNotes()
+    var note = notes.filter((note) => note.title == title)
+    return note[0]
 }
 
 var fetchNotes = () => {

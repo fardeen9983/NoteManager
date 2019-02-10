@@ -6,7 +6,12 @@ var argv = yargs.argv;
 var command = argv._[0]
 switch (command) {
     case "read":
-        notes.readNote(argv.title)
+        var note = notes.readNote(argv.title)
+        if (note) {
+            console.log("Note found --- \nTitle: ", note.title, "\nBody: ", note.body)
+        } else {
+            console.log("Note not found")
+        }
         break
     case "add":
         var note = notes.addNote(argv.title, argv.body)
